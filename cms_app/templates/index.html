@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CMS Prep App</title>
+</head>
+<body>
+
+<h2>UPSC CMS Practice</h2>
+
+<a href="/get_question">Get Question</a>
+
+{% if q %}
+    <form method="POST" action="/submit">
+        <p>{{ q[2] }}</p>
+
+        <input type="radio" name="answer" value="A"> {{ q[3] }}<br>
+        <input type="radio" name="answer" value="B"> {{ q[4] }}<br>
+        <input type="radio" name="answer" value="C"> {{ q[5] }}<br>
+        <input type="radio" name="answer" value="D"> {{ q[6] }}<br>
+
+        <input type="hidden" name="correct" value="{{ q[7] }}">
+
+        <button type="submit">Submit</button>
+    </form>
+{% endif %}
+
+{% if result %}
+    <h3>{{ result }}</h3>
+    <p>Score: {{ score }}</p>
+{% endif %}
+
+</body>
+</html>
